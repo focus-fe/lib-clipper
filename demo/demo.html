@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+    <div id="aaa" style="margin:20px;width:300px;height:300px"></div>
+        <button id="cut">裁剪</button>
+        <button id="big">放大</button>
+        <button id="small">缩小</button>
+</body>
+<script type="text/javascript" src="../lib/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../index.js"></script>
+<script>
+    var initialData = {
+        cutWidth : 200,
+        cutHeight : 200,
+        containerWidth : 300,
+        containerHeight : 300,
+        url : 'http://0d077ef9e74d8.cdn.sohucs.com/topic_picture_1'
+    };
+    var cut = new Clipper($('#aaa'), initialData);
+    $('#big').click(function () {
+        cut.bigger();
+    });
+    $('#small').click(function () {
+        cut.smaller();
+    });
+    $('#cut').click(function () {
+        cut.cut(function (url) {
+            console.log(url);
+        });
+    });
+</script>
+</html>
